@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+pymysql2/__init__.py
+pymysql2/__main__.py
+pymysql2.egg-info/PKG-INFO
+pymysql2.egg-info/SOURCES.txt
+pymysql2.egg-info/dependency_links.txt
+pymysql2.egg-info/entry_points.txt
+pymysql2.egg-info/requires.txt
+pymysql2.egg-info/top_level.txt

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Docker Command Terminal</title>
+  <style>
+    body { background: black; color: white; font-family: monospace; }
+    #output { white-space: pre-wrap; }
+    input { width: 100%; background: black; color: lime; padding: 10px; }
+  </style>
+</head>
+<body>
+  <div id="output"></div>
+  <input type="text" id="cmd" placeholder="Enter command and press Enter..." />
+
+  <script>
+    const output = document.getElementById('output');
+    const cmdInput = document.getElementById('cmd');
+
+    const ws = new WebSocket('ws://localhost:8765');
+
+    ws.onmessage = function(event) {
+      if (event.data === "[END]\r\n") {
+        cmdInput.disabled = false;
+        cmdInput.focus();
+      } else {
+        output.innerText += event.data;
+      }
+    };
+
+    cmdInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const cmd = cmdInput.value;
+        output.innerText += "$ " + cmd + "\n";
+        cmdInput.disabled = true;
+        ws.send(cmd);
+        cmdInput.value = "";
+      }
+    });
+  </script>
+</body>
+</html>
