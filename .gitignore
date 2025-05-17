@@ -12,3 +12,5 @@ __pycache__/
 .pytest_cache/
 backend/src/models/__pycache__/
 backend/src/routers/__pycache__/
+node_modules/
+.next
