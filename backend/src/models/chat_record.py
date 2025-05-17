@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, Text, DateTime
+from sqlalchemy import Column, Integer, Text, DateTime,String
 from database import Base
-
+from datetime import datetime
 class ChatRecord(Base):
     __tablename__ = 'chat_records'
 
